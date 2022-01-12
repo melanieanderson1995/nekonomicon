@@ -1,0 +1,130 @@
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+
+html {
+    @apply text-white;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+.card-wrapper-container {
+  @apply bg-purple-900 rounded border border-yellow-300
+}
+
+.card-title-container {
+  @apply bg-purple-800 rounded-t
+}
+
+.card-title {
+  @apply font-bold text-lg text-white px-4 pt-2 items-center justify-center inline-block
+}
+
+.card-main-container {
+  @apply bg-black w-full
+}
+
+.nav-li {
+  @apply font-bold text-sm py-2 px-2 cursor-pointer m-1 text-white no-underline;
+
+  &:hover {
+    @apply text-yellow-500 no-underline transition ease-in-out
+  }
+}
+
+.nav-title {
+  @apply font-bold text-lg py-2 px-2 cursor-pointer m-1 text-white no-underline;
+
+  &:hover {
+    @apply text-yellow-500 no-underline transition ease-in-out
+  }
+}
+
+.btn {
+    @apply font-bold text-sm py-2 px-2 rounded cursor-pointer m-1 shadow;
+
+    &:hover {
+      color: white;
+    }
+}
+
+.btn-red {
+    @apply bg-red-600 text-white;
+
+    &:hover {
+        @apply bg-red-700 transition ease-in-out;
+    }
+
+}
+
+.btn-green {
+  @apply bg-green-600 text-white;
+
+  &:hover {
+      @apply bg-green-700 transition ease-in-out;
+  }
+
+}
+
+.btn-yellow {
+  @apply bg-yellow-600 text-white;
+
+  &:hover {
+      @apply bg-yellow-700 transition ease-in-out;
+  }
+
+}
+
+.btn-purple {
+  @apply bg-purple-500 text-white;
+
+  &:hover {
+      @apply bg-purple-600 transition ease-in-out;
+  }
+
+}
+
+.btn-dark-purple {
+  @apply bg-purple-700 text-white;
+
+  &:hover {
+      @apply bg-purple-800 transition ease-in-out;
+  }
+
+}
+
+.grid-table {
+  thead tr {
+    @apply bg-yellow-600 p-3
+  }
+
+  tbody tr {
+    &:nth-of-type(even) {
+      td {
+        @apply bg-gray-900;
+      }
+    }
+    &:nth-of-type(odd) {
+      td {
+        @apply bg-gray-800;
+      }
+    }
+}
+
+  th {
+    @apply p-2 text-left border border-yellow-800
+  }
+
+  td {
+    @apply text-white whitespace-nowrap truncate
+  }
+}
+
+.border-container-yellow {
+  @apply bg-yellow-200 py-1 px-2 rounded border border-yellow-600;
+}
+
+.border-container-purple {
+  @apply bg-purple-200 py-1 px-2 rounded border border-purple-600;
+}

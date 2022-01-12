@@ -1,0 +1,37 @@
+<%= form_with(model: breed) do |form| %>
+  <% if breed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(breed.errors.count, "error") %> prohibited this breed from being saved:</h2>
+
+      <ul>
+        <% breed.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field my-2">
+      <%= form.label :name, "Name:", class: "text-white font-bold" %>
+      <%= form.text_field :name, class: "bg-gray-800 text-white p-2 rounded border border-gray-600 w-full" %>
+    </div>
+
+    <div class="field flex flex-row">
+      <%= form.label :rare, "Rare:", class: "text-white font-bold mr-2" %>
+      <%= form.check_box :rare %>
+    </div>
+
+  <div class="field mb-2">
+    <%= form.label :description, "Description:", class: "text-white font-bold"  %>
+    <%= form.text_area :description, class: "bg-gray-800 text-white p-2 ml-2 rounded border border-gray-600 w-full" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url, "Image URL:", class: "text-white font-bold" %>
+    <%= form.text_field :image_url, class: "bg-gray-800 text-white p-2 rounded border border-gray-600 w-full" %>
+  </div>
+
+  <div class="actions flex justify-center items-center mt-4">
+    <%= form.submit "Update Breed", class: "btn btn-green" %>
+  </div>
+<% end %>

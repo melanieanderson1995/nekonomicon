@@ -1,0 +1,16 @@
+
+
+<div class="card-wrapper-container">
+    <div class="card-title-container">
+    <span class="card-title">
+        Editing <%= @breed.name %>
+    </span>
+    </div>
+    <div class="card-main-container flex-1 flex-col p-4 justify-center items-center">
+        <%= render 'form', breed: @breed %>
+        <div class="mt-4">
+            <%= link_to 'Show', @breed, class: "btn btn-yellow" %>
+            <%= link_to 'Back', breeds_path, class: "btn btn-purple" %>
+        </div>
+    </div>
+</div>

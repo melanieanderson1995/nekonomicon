@@ -1,0 +1,50 @@
+<div class="card-wrapper-container">
+  <div class="card-title-container">
+    <span class="card-title">
+    Edit <%= resource_name.to_s.humanize %>
+    </span>
+  </div>
+  <div class="card-main-container flex flex-col p-4">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <div class="field mb-2">
+        <%= f.label :email, "Email", class: "font-bold text-white" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-1/2 bg-gray-800 text-white p-2 rounded border border-gray-600" %>
+      </div>
+    
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    
+      <div class="field mb-2">
+        <%= f.label :password, "Password", class: "font-bold text-white" %> <br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "w-1/2 bg-gray-800 text-white p-2 rounded border border-gray-600" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em class="text-white"><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+    
+      <div class="field mb-2">
+        <%= f.label :password_confirmation, "Password Confirmation", class: "font-bold text-white" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-1/2 bg-gray-800 text-white p-2 rounded border border-gray-600" %>
+      </div>
+    
+      <div class="field mb-2">
+        <%= f.label :current_password, "Current Password", class: "font-bold text-white" %> <br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "w-1/2 bg-gray-800 text-white p-2 rounded border border-gray-600" %>
+      </div>
+    
+      <div class="actions flex items-center">
+        <%= f.submit "Update", class: "btn btn-green" %>
+      </div>
+    <% end %>
+    
+      <div class="flex">
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-red" %></p>
+        <%= link_to "Back", :back, class: "btn btn-purple" %>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<nav class="flex items-center justify-between flex-wrap bg-purple-900 p-6 sticky top-0 z-50 relative">
+<div class="flex items-center flex-shrink-0 text-white mr-6">
+  <span class="font-bold text-xl">
+    <%= link_to "Nekonomicon", root_path, class: "nav-title" %>
+  </span>
+</div>
+
+<div class="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
+    <% if !user_signed_in? %>
+    <div class="text-lg sm:flex-grow flex items-center justify-end">
+      <%=link_to "Sign up", new_user_registration_path, class: "nav-li text-white" %>
+      <%=link_to "Log in", new_user_session_path, class: "nav-li text-white" %>
+    <div>
+    <% end %>
+
+  <% if user_signed_in? %>
+      <div class="text-lg sm:flex-grow flex items-center justify-between">
+        <%=link_to "PLACEHOLDER", root_path, class: "nav-li" %>
+
+        <div class="items-center flex">
+            <%=link_to "Settings", edit_user_registration_path, class: "nav-li float-right" %>
+            <%=link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-red float-right text-white" %>
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+</div>
+</nav>
