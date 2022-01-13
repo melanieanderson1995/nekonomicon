@@ -15,7 +15,10 @@
 
   <% if user_signed_in? %>
       <div class="text-lg sm:flex-grow flex items-center justify-between">
-        <%=link_to "PLACEHOLDER", root_path, class: "nav-li" %>
+        <div class="justify-none">
+          <%=link_to "Breeds", breeds_path, class: "nav-li" %>
+          <%=link_to "Cats", cats_path, class: "nav-li" %>
+        </div>
 
         <div class="items-center flex">
             <%=link_to "Settings", edit_user_registration_path, class: "nav-li float-right" %>

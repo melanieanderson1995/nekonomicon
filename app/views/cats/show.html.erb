@@ -1,27 +1,36 @@
-<p>
-  <strong>Name:</strong>
-  <%= @cat.name %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @cat.age %>
-</p>
+<div class="card-wrapper-container">
+<div class="card-title-container">
+  <span class="card-title">
+    <%= @cat.name %>
+  </span>
+</div>
+<div class="card-main-container flex flex-col p-4 justify-center items-center">
+  <div class="flex">
+    <div class="w-1/2 mr-4">
+      <p class="text-white">
+        <strong>Breed:</strong> <br>
+        <%= @cat.breed.name %>
+      </p>
+      <br>
+      <p class="text-white">
+        <strong>Age:</strong> <br>
+        <%= @cat.age %>
+      </p>
+      <br>
+      <p class="text-white">
+        <strong>Gender:</strong> <br>
+        <%= @cat.gender %>
+      </p>
+    </div>
+    <div class="w-1/2">
+      <img src="<%= @cat.image_url %>" alt="cat image">
+    </div>
+  </div>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @cat.gender %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @cat.image_url %>
-</p>
-
-<p>
-  <strong>Breed:</strong>
-  <%= @cat.breed_id %>
-</p>
-
-<%= link_to 'Edit', edit_cat_path(@cat) %> |
-<%= link_to 'Back', cats_path %>
+  <div class="mt-4">
+    <%= link_to 'Edit', edit_cat_path(@cat), class: "btn btn-yellow" %>
+    <%= link_to 'Back', cats_path, class: "btn btn-purple" %>
+  </div>
+</div>
+</div>

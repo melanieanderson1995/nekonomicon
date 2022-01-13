@@ -11,32 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="field my-2">
+      <%= form.label :name, "Name:", class: "text-white font-bold" %>
+      <%= form.text_field :name, class: "bg-gray-800 text-white p-2 rounded border border-gray-600 w-full" %>
+    </div>
+
+    <div class="field mb-2">
+      <%= form.label :age, "Age:", class: "text-white font-bold mr-2" %>
+      <%= form.number_field :age, class: "bg-gray-800 text-white p-2 ml-2 rounded border border-gray-600 w-full" %>
+    </div>
+
+  <div class="field mb-2">
+    <%= form.label :gender, "Gender:", class: "text-white font-bold"  %><br>
+    <div class="flex">
+      <div class="flex flex-col items-center justify-center mr-4">
+        <%= form.radio_button :gender, 'Female' %>
+        <%= form.label :gender, "Female", :value => "female", class: "text-white" %>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <%= form.radio_button :gender, 'Male' %>
+        <%= form.label :gender, "Male", :value => "male", class: "text-white"  %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
+    <%= form.label :breed_id, "Breed:", class: "text-white font-bold" %>
+    <%= form.text_field :breed_id, class: "bg-gray-800 text-white p-2 rounded border border-gray-600 w-full" %>
   </div>
 
   <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
+    <%= form.label :image_url, "Image URL:", class: "text-white font-bold" %>
+    <%= form.text_field :image_url, class: "bg-gray-800 text-white p-2 rounded border border-gray-600 w-full" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :breed_id %>
-    <%= form.text_field :breed_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions flex justify-center items-center mt-4">
+    <%= form.submit "Update Breed", class: "btn btn-green" %>
   </div>
 <% end %>
