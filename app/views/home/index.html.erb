@@ -1,5 +1,8 @@
-<div class="text-lg text-white text-center">He took a dusty book off the shelf..."Nekonomicon" in old carved letters into the leather. The book appeared to breathe and shift of its own accord, a living tome. Turn the page and take a look...</div>
-<div class="flex-1 flex justify-center items-center p-4">
-<%= link_to "Breeds", breeds_path, class: "btn btn-yellow" %>
-<%= link_to "Cats", cats_path, class: "btn btn-purple" %>
-</div>
+
+<% if user_signed_in? %>
+    <div class="text-lg text-white text-center">He took a dusty book off the shelf..."Nekonomicon" in old carved letters into the leather. The book appeared to breathe and shift of its own accord, a living tome. Turn the page and take a look...</div>
+    <div class="flex-1 flex justify-center items-center p-4">
+    <%= link_to "Breeds", breeds_path, class: "btn btn-yellow" %>
+    <%= link_to "Cats", cats_path, class: "btn btn-purple" %>
+    </div>
+<% end %>

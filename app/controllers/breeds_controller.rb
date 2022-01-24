@@ -1,5 +1,6 @@
 class BreedsController < ApplicationController
   before_action :set_breed, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /breeds or /breeds.json
   def index
@@ -49,12 +50,21 @@ class BreedsController < ApplicationController
 
   # DELETE /breeds/1 or /breeds/1.json
   def destroy
-    @breed.destroy
+    begin
+      @breed.destroy
 
-    respond_to do |format|
-      format.html { redirect_to breeds_url, notice: "Breed was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to breeds_url, notice: "Breed was successfully destroyed." }
+        format.json { head :no_content }
+      end
+
+      rescue ActiveRecord::InvalidForeignKey => e
+        respond_to do |format|
+          format.html {redirect_to breeds_url, alert: "Cannot delete breed that existing cat belongs to."}
+          format.json { head :no_content }
+        end
     end
+    
   end
 
   private
