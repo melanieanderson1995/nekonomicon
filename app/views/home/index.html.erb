@@ -4,5 +4,6 @@
     <div class="flex-1 flex justify-center items-center p-4">
     <%= link_to "Breeds", breeds_path, class: "btn btn-yellow" %>
     <%= link_to "Cats", cats_path, class: "btn btn-purple" %>
+    <%= react_component("HelloWorld", {greeting: "HELLO FROM REACT-RAILS"}) %>
     </div>
 <% end %>
