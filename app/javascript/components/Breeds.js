@@ -19,22 +19,23 @@ const Breeds = ({auth_token}) => {
             .catch((error) => console.log(error));
         }, []);
 
-    const handleDelete = (item) => {
-      console.log("BREEDID", item);
-      const url = `/breeds/${item}`;
-      console.log("URL", url);
+    const handleDelete = (e, item) => {
+      const url = `/breeds/${item.id}`;
       fetch(url, {
         method: "DELETE",
         headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-Token': auth_token
+        'X-CSRF-Token': auth_token,
+        "Accept": "application/json"
         }})
           .then(response => {
               console.log("RESPONSE", response);
               if (response.ok) {
-                  return response.json();
-              }
+                  let removeBreedIndex = breeds.indexOf(item.name);
+                  setBreeds(breeds.filter((breed) => item.id !== breed.id));
+              } else {
               throw new Error("Network response was not ok.");
+              }
           })
           .catch((error) => console.log(error));
     }
@@ -67,7 +68,7 @@ const Breeds = ({auth_token}) => {
                             <td className="justify-center flex">
                               <a href={`/breeds/${breed.id}`} className="btn btn-purple">Show</a>
                               <a href={`/breeds/${breed.id}/edit`} className="btn btn-yellow">Edit</a>
-                              <button className="btn btn-red" onClick={() => handleDelete(breed.id)}>Delete</button>
+                              <button className="btn btn-red" onClick={(e) => handleDelete(e, breed)}>Delete</button>
                             </td>
                         </tr>
                     ))}

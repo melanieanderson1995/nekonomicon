@@ -37,11 +37,10 @@ class BreedsController < ApplicationController
 
   # PATCH/PUT /breeds/1 or /breeds/1.json
   def update
-    respond_to do |format|
-      if @breed.update(breed_params)
-        format.html { redirect_to breed_url(@breed), notice: "Breed was successfully updated." }
-        format.json { render :show, status: :ok, location: @breed }
-      else
+    if @breed.update(breed_params)
+      redirect_to breeds_url(@breed)
+    else
+      respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @breed.errors, status: :unprocessable_entity }
       end

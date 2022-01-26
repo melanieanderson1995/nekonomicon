@@ -17,21 +17,22 @@ const EditBreed = ({auth_token, breed}) => {
     }, [breed])
 
     const handleSubmit = (event) => {
-        console.log("EVENT", event);
         const url = `/breeds/${breed.id}`
         fetch(url, {
             method: "PUT",
             headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-Token': auth_token
+            'X-CSRF-Token': auth_token,
+            "Accept": "application/json"
             },
             body: JSON.stringify(values)
         }).then(response => {
             if (response.ok) {
             console.log("UPDATE SUCCESS")
-            }
+            } else {
             throw new Error("Network update response was not ok");
-        }).catch((error) => console.log(error));
+            }
+        }).catch((error) => console.log("ERROR", error));
     }
 
 //   <% if breed.errors.any? %>
